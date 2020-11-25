@@ -1,23 +1,37 @@
 module.exports = {
-  root: true,
-  globals: {
-    page: true,
-    browser: true,
-    context: true,
+  parser: `@typescript-eslint/parser`,
+  extends: [
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
+    'prettier/@typescript-eslint',
+  ],
+  plugins: ['@typescript-eslint', 'prettier'],
+  parserOptions: {
+    ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
+    sourceType: 'module', // Allows for the use of imports
   },
-  extends: ['plugin:react/recommended'],
-  settings: {
-    react: {
-      version: '16.9',
-    },
+  env: {
+    browser: true,
+    node: true,
   },
   rules: {
-    quotes: ['error', 'single'],
-    semi: 'error',
-  },
-  parser: 'babel-eslint',
-  parserOptions: {
-    ecmaVersion: 6,
-    sourceType: 'module',
+    quotes: 'off',
+    '@typescript-eslint/quotes': [
+      2,
+      'backtick',
+      {
+        avoidEscape: true,
+      },
+    ],
+    indent: ['error', 2, { SwitchCase: 1 }],
+    'prettier/prettier': [
+      'error',
+      {
+        trailingComma: 'es5',
+        semi: false,
+        singleQuote: false,
+        printWidth: 120,
+      },
+    ],
   },
 };
