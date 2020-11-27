@@ -6,6 +6,7 @@ module.exports = {
     author: '@dislearning',
   },
   plugins: [
+    'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     {
